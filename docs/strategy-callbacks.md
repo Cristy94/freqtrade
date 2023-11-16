@@ -490,7 +490,7 @@ The helper function `stoploss_from_absolute()` can be used to convert from an ab
             trade_date = timeframe_to_prev_date(self.timeframe, trade.open_date_utc)
             candle = dataframe.iloc[-1].squeeze()
             sign = 1 if trade.is_short else -1
-            return stoploss_from_absolute(current_rate + (side * candle['atr'] * 2), 
+            return stoploss_from_absolute(current_rate + (sign * candle['atr'] * 2), 
                                           current_rate, is_short=trade.is_short,
                                           leverage=trade.leverage)
 
